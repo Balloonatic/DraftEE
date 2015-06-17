@@ -18,9 +18,17 @@
 			'version'	=> '0.002'
 		);
 
-		public function Draftee_ft()
-		{
-			parent::EE_Fieldtype();
+	function __construct()
+ 	{
+  		if (version_compare(APP_VER, '2.1.4', '>')) 
+  		{ 
+  			parent::__construct(); 
+  		} 
+  		else 
+  		{ 
+  			parent::EE_Fieldtype(); 
+  		}
+  
 			// include_once PATH_THIRD.'taxonomy/libraries/MPTtree.php';
 			$this->EE->lang->loadfile('draftee');
 			$this->theme_base = $this->EE->config->item('theme_folder_url').'third_party/draftee_assets/';
